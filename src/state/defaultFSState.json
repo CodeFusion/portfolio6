@@ -1,0 +1,82 @@
+{
+  "desktop": {
+    "name": "Desktop",
+    "files": [
+      {
+        "id": "f-readme",
+        "type": "text",
+        "name": "README",
+        "icon": "/icons/file.png",
+        "iconDrag": "/icons/file-drag.png",
+        "position": {
+          "x": 10,
+          "y": 10
+        }
+      },
+      {
+        "id": "f-github",
+        "type": "link",
+        "path": "https://github.com/CodeFusion",
+        "name": "Github",
+        "icon": "/icons/github.png",
+        "iconDrag": "/icons/github-drag.png",
+        "position": {
+          "x": 100,
+          "y": 10
+        }
+      },
+      {
+        "id": "f-phd",
+        "type": "folder",
+        "name": "Portfolio HD",
+        "path": "portfoliohd",
+        "icon": "/icons/drive.png",
+        "iconDrag": "/icons/drive-drag.png",
+        "position": {
+          "x": 190,
+          "y": 10
+        }
+      }
+    ]
+  },
+  "portfoliohd": {
+    "name": "Portfolio HD",
+    "files": [
+      {
+        "id": "f-another",
+        "type": "text",
+        "name": "Another File",
+        "icon": "/icons/file.png",
+        "iconDrag": "/icons/file-drag.png",
+        "position": {
+          "x": 10,
+          "y": 10
+        }
+      },
+      {
+        "id": "f-more",
+        "type": "link",
+        "path": "https://github.com/CodeFusion",
+        "name": "Welcome",
+        "icon": "/icons/github.png",
+        "iconDrag": "/icons/github-drag.png",
+        "position": {
+          "x": 120,
+          "y": 10
+        }
+      },
+      {
+        "id": "f-phd2",
+        "type": "folder",
+        "name": "Spare HD",
+        "path": "portfoliohd",
+        "icon": "/icons/drive.png",
+        "iconDrag": "/icons/drive-drag.png",
+        "position": {
+          "x": 210,
+          "y": 10
+        }
+      }
+    ]
+  }
+}

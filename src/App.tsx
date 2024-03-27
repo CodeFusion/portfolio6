@@ -1,12 +1,13 @@
-import './App.css'
-import MenuBar from "./components/MenuBar";
+import {MenuBar} from "./components/MenuBar";
+import {Desktop} from "./components/Desktop";
 
 function App() {
 
   return (
-    <>
-      <MenuBar />
-    </>
+    <div className="bg-black flex flex-col h-full p-2 z-auto" onContextMenu={(e) => {e.preventDefault(); return false}}>
+        <MenuBar />
+        <Desktop />
+    </div>
   )
 }
 

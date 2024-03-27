@@ -1,0 +1,19 @@
+.blink {
+    animation: blink 100ms linear 2;
+}
+
+@keyframes blink {
+    0%,50% {
+        background: white;
+        color: black;
+    }
+    51%,100% {
+        background: black;
+        color: white;
+    }
+}
+
+.systemIcon {
+    width: 24px;
+    height: 24px;
+}

@@ -3,9 +3,9 @@
 @tailwind utilities;
 
 @font-face {
-  font-family: 'pix Chicago';
-  src: url('./assets/pixChicago.woff2') format('woff2'),
-  url('./assets/pixChicago.woff') format('woff');
+  font-family: 'Geneva';
+  src: url('./assets/geneva-9-2.ttf') format('truetype'),
+  url('./assets/geneva-9-2.ttf') format('truetype');
 }
 
 @font-face {
@@ -19,16 +19,21 @@ html, body, #root, App {
   width: 100%;
   margin: 0;
   padding: 0;
-  font-family: 'ChiKareGo2', sans-serif;
+  font-family: 'Geneva', sans-serif;
   font-size: 24px;
   user-select: none;
 }
 
-#root {
-  background-image: url('./assets/wallpaper.bmp');
-  background-repeat: repeat;
+.MenuBar {
+  font-family: 'ChiKareGo2', sans-serif;
 }
 
 .hard-shadow {
   box-shadow: 4px 4px 0 -1px #000;
+}
+
+img {
+  image-rendering: pixelated;
+  image-rendering: -moz-crisp-edges;
+  image-rendering: crisp-edges;
 }

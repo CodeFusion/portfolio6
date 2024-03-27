@@ -1,0 +1,80 @@
+.titlebar {
+    background-color: white;
+    image-rendering: crisp-edges;
+    display:flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 6px 16px;
+    width: 100%;
+    position: relative;
+    cursor:default;
+}
+
+.titlebar > * {
+    z-index: 10;
+    cursor: default;
+}
+
+.titlebar-handle {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    z-index: 0;
+}
+
+.titlebar-handle:after {
+    top:6px;
+    left: 4px;
+    right: 4px;
+    bottom: 6px;
+    position: absolute;
+    background-image: url('/titlebar-bg.png');
+    content: '';
+    background-repeat: repeat-x;
+    background-size: 100% 22px;
+}
+
+.titlebar button {
+    height: 22px;
+    width: 26px;
+    padding: 0 2px;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    image-rendering: crisp-edges;
+    display: inline-block;
+    background-color: white;
+    flex-shrink: 0;
+}
+
+.titlebar button:active:hover {
+    background-image: url('/icons/titlebar-click.png');
+}
+
+.titlebar button img {
+    height: 22px;
+    width: 22px;
+}
+
+.p7w-close {
+    background-image: url('/icons/titlebar-close.png');
+}
+
+.p7w-shrink {
+    background-image: url('/icons/titlebar-shrink.png');
+}
+
+.p7w-title {
+    height: 22px;
+    background: white;
+    padding: 0 12px;
+    font-family: 'ChiKareGo2', sans-serif;
+    line-height: 22px;
+    pointer-events: none;
+    overflow: hidden;
+    margin: 0 12px;
+    text-overflow: '';
+}

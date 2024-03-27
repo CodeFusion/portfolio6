@@ -1,0 +1,16 @@
+{
+  "windows": [
+    {
+      "id": "w-portfoliohd",
+      "title": "Portfolio HD",
+      "position": {
+        "x": 10,
+        "y": 10
+      },
+      "appData": {
+        "app": "phoenix",
+        "path": "portfoliohd"
+      }
+    }
+  ]
+}

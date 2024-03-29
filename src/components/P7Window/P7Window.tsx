@@ -2,6 +2,7 @@ import './P7Window.css';
 import {useDraggable} from "@dnd-kit/core";
 import React, {CSSProperties, PropsWithChildren, useRef, useState} from "react";
 import {useWindowManager} from "../../state/windowManager.ts";
+import {useShallow} from "zustand/react/shallow";
 
 export type P7WindowProps = {
   id: string
@@ -22,15 +23,24 @@ export const P7Window = ({id, title, overlay, position, children}: PropsWithChil
   const [contentVisible, setContentVisible] = useState(false)
   const removeWindow = useWindowManager((state) => state.removeWindow)
 
+  const {topZIndex, incrementZIndex} = useWindowManager(
+    useShallow((state) => ({topZIndex: state.topZIndex, incrementZIndex: state.incrementZIndex}))
+  );
+  const [zIndex, setZIndex] = useState(topZIndex);
+
+
+
   const positionStyle = {
     left: `${position.x}px`,
     top: `${position.y}px`,
+    zIndex: zIndex
   }
 
   const dragStyle =  overlay ? {
     border: '2px dotted black',
     color: 'transparent',
-    background: 'transparent'
+    background: 'transparent',
+    zIndex: '900000 !important'
   } : {
     border: '2px solid black'
   }
@@ -53,9 +63,14 @@ export const P7Window = ({id, title, overlay, position, children}: PropsWithChil
     winRef.current = elem
   }
 
+  const handleFocus = () => {
+    incrementZIndex()
+    setZIndex(topZIndex)
+  }
+
   return (
-    <div className="absolute z-40 cursor-default" style={{...dragStyle, ...positionStyle}}
-         ref={setRef} {...attributes}>
+    <div className="absolute cursor-default p7window" style={{...dragStyle, ...positionStyle}}
+         ref={setRef} {...attributes} onFocus={handleFocus}>
       <div className="hard-shadow bg-white" style={{...contentStyle}}>
         <div className="titlebar"> {/* Titlebar */}
           <div className="titlebar-handle" {...listeners} onDoubleClick={hideListener}></div>

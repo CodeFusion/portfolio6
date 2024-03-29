@@ -19,7 +19,7 @@ export const Yuki = ({url}: YukiProps) => {
         <div className="flex-grow"></div>
         <button className="border-black border-2 justify-self-end flex flex-col justify-center logo"><img src="/icons/seal-navigator-grey.png" alt="Yuki Browser" /></button>
       </div>
-      <iframe title={`yuki`} src={url} style={{height: 600, width: 800}} className="grayscale"/>
+      <iframe title={`yuki`} src={url} style={{height: 300, width: 400}} className="grayscale"/>
     </>
   )
 }

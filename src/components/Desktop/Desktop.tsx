@@ -101,7 +101,7 @@ export const Desktop = () => {
                     </P7Window>
                 ))}
             </div>
-            <DragOverlay>
+            <DragOverlay style={{zIndex: 800000}}>
                 {activeItem?.id.toString().startsWith('f-') &&
                   <P7File {...activeItem as P7FileProps} position={{x: 0, y:0}} overlay={true} />
                 }

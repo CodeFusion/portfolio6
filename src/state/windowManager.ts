@@ -5,6 +5,7 @@ import {immer} from "zustand/middleware/immer";
 
 type WMState = {
   windows: P7WindowProps[];
+  topZIndex: number;
 }
 
 type Actions = {
@@ -12,11 +13,13 @@ type Actions = {
   removeWindow: (id: string) => void;
   setWindows: (windows: P7WindowProps[]) => void;
   setWindow: (id: string, window: P7WindowProps) => void;
+  incrementZIndex: () => void;
 }
 
 export const useWindowManager = create<WMState & Actions>()(
   immer((set) => ({
     windows: defaultWindows.windows,
+    topZIndex: 10000,
     addWindow: (win) =>
       set((state) => {
         state.windows.push(win)
@@ -34,5 +37,8 @@ export const useWindowManager = create<WMState & Actions>()(
         } else {
           state.windows.push(window)
         }
-      })
+      }),
+    incrementZIndex: () => set((state) => {
+      state.topZIndex += 1
+    })
 })))

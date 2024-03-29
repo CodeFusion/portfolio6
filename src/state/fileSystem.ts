@@ -5,12 +5,14 @@ import {immer} from "zustand/middleware/immer";
 
 type FSState = {
   files: FileSystem;
+  topZIndex: number;
 }
 
 type Actions = {
   addFile: (path: string, file: P7FileProps) => void;
   removeFile: (path: string, id: string) => void;
   setFile: (path: string, id: string, file: P7FileProps) => void
+  incrementZIndex: () => void;
 }
 
 type FileSystem = Record<string, {name: string, files: P7FileProps[]}>
@@ -18,6 +20,7 @@ type FileSystem = Record<string, {name: string, files: P7FileProps[]}>
 export const useFileSystem = create<FSState & Actions>()(
   immer((set) => ({
     files: defaultFiles as FileSystem,
+    topZIndex: 100,
     addFile: (path, file) =>
       set((state) => {
         state.files[path].files.push(file)
@@ -35,6 +38,9 @@ export const useFileSystem = create<FSState & Actions>()(
           state.files[path].files.push(file)
         }
       })
-    }
+    },
+    incrementZIndex: () => set((state) => {
+      state.topZIndex += 1
+    })
   }))
 )

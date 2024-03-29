@@ -1,5 +1,18 @@
 {
   "windows": [
+
+    {
+      "id": "w-yuki",
+      "title": "Browser",
+      "position": {
+        "x": 10,
+        "y": 10
+      },
+      "appData": {
+        "app": "yuki",
+        "path": "https://archive.org"
+      }
+    },
     {
       "id": "w-portfoliohd",
       "title": "Portfolio HD",

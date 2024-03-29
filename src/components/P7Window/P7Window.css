@@ -1,5 +1,7 @@
 .titlebar {
     background-color: white;
+    image-rendering: pixelated;
+    image-rendering: -moz-crisp-edges;
     image-rendering: crisp-edges;
     display:flex;
     flex-direction: row;
@@ -25,7 +27,7 @@
     z-index: 0;
 }
 
-.titlebar-handle:after {
+.p7window:focus-within .titlebar-handle:after {
     top:6px;
     left: 4px;
     right: 4px;
@@ -38,19 +40,24 @@
 }
 
 .titlebar button {
+    visibility: hidden;
     height: 22px;
     width: 26px;
     padding: 0 2px;
+    flex-shrink: 0;
+    display: inline-block;
+    image-rendering: crisp-edges;
+}
+
+.p7window:focus-within .titlebar button {
+    visibility: visible;
     background-repeat: no-repeat;
     background-size: contain;
     background-position: center;
-    image-rendering: crisp-edges;
-    display: inline-block;
     background-color: white;
-    flex-shrink: 0;
 }
 
-.titlebar button:active:hover {
+.p7window:focus-within .titlebar button:active:hover {
     background-image: url('/icons/titlebar-click.png');
 }
 

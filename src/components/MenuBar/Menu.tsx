@@ -16,7 +16,7 @@ export const Menu = ({name, icon, items, className}: MenuProps) => {
     const onMouseDown = (e: React.MouseEvent | React.TouchEvent) => {
         buttonRef.current?.focus();
         setIsOpen(true);
-        if (e.type !== 'touchstart') {
+        if (e.type === 'touchstart') {
             document.addEventListener('touchstart', onMouseUp, {once: true})
         } else {
             document.addEventListener('mouseup', onMouseUp, {once: true})

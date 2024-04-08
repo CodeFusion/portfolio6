@@ -45,8 +45,8 @@ export const MenuBar = () => {
         <div className="MenuBar flex w-full border-b-2 border-black px-3 bg-white rounded-t-xl">
             <Menu name="System" icon="/Pixseal-simple.png" items={systemMenuItems} />
             <Menu name="File" items={fileMenuItems} />
-            <Menu name="Edit" items={editMenuItems} />
-            <Menu name="View" items={viewMenuItems} />
+            <Menu name="Edit" items={editMenuItems} className="max-md:hidden"/>
+            <Menu name="View" items={viewMenuItems} className="max-md:hidden"/>
             <Menu name="Special" items={specialMenuItems} />
         </div>
     )

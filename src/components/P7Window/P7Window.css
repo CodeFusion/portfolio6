@@ -1,3 +1,8 @@
+.p7window {
+    max-width: 100%;
+    max-height: 100%;
+}
+
 .titlebar {
     background-color: white;
     image-rendering: pixelated;
@@ -183,7 +188,7 @@
     background-color: white;
 }
 
-.p7window.focused .titlebar button:active:hover {
+.p7window.focused .titlebar button:active:hover, .p7window.focused .titlebar button:active{
     background-image: url('/icons/titlebar-click.png');
 }
 
@@ -257,4 +262,22 @@
     border-image: url('/icons/border.png') 2;
     border-image-repeat: round;
     z-index: 50000;
+}
+
+@media screen and (max-width: 500px) {
+    .p7window {
+        top: 0 !important;
+        left: 0 !important;
+        right: 0 !important;
+        bottom: 0 !important;
+    }
+
+    .titlebar-handle {
+        touch-action: none;
+        pointer-events: none;
+    }
+
+    .p7w-shrink {
+        visibility: hidden !important;
+    }
 }

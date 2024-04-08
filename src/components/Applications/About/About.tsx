@@ -1,7 +1,7 @@
 export const About = () => {
 
   return (
-    <div className="grid grid-cols-2 p-2">
+    <div className="grid grid-cols-1 md:grid-cols-2 p-2">
       <div className="text-center font-bold">
         <img src="/icons/seal-navigator-mono.png" alt="Seal Icon" className="inline"/>
         <h1>Reactintosh Classic</h1>

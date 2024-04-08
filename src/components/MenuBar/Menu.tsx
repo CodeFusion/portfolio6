@@ -6,19 +6,24 @@ export interface MenuProps {
     name: string;
     icon?: string;
     items: (MenuItemProps | "separator")[];
+    className?: string;
 }
 
-export const Menu = ({name, icon, items}: MenuProps) => {
+export const Menu = ({name, icon, items, className}: MenuProps) => {
     const buttonRef = useRef<HTMLButtonElement|null>(null);
     const [isOpen, setIsOpen] = useState(false);
 
-    const onMouseDown = () => {
+    const onMouseDown = (e: React.MouseEvent | React.TouchEvent) => {
         buttonRef.current?.focus();
         setIsOpen(true);
-        document.addEventListener('mouseup', onMouseUp, {once: true})
+        if (e.type !== 'touchstart') {
+            document.addEventListener('touchstart', onMouseUp, {once: true})
+        } else {
+            document.addEventListener('mouseup', onMouseUp, {once: true})
+        }
     }
 
-    const onMouseUp = async (e: MouseEvent) => {
+    const onMouseUp = async (e: MouseEvent | TouchEvent) => {
         if ((e.target as Element).classList.contains('menuItem')) {
             (e.target as Element).classList.add('blink');
             setTimeout(() => {
@@ -41,14 +46,14 @@ export const Menu = ({name, icon, items}: MenuProps) => {
     }
 
     return (
-        <div className="relative menu" onMouseDown={onMouseDown}>
+        <div className={"relative menu " + className} onMouseDown={onMouseDown} onTouchStart={onMouseDown}>
             <button
                 className="inline px-3 cursor-default whitespace-nowrap rounded-none h-full
                 focus:bg-black focus:text-white
-                focus-visible:outline-none"
+                focus-visible:outline-none touch-manipulation"
                 ref={buttonRef}>
-                {icon ? <img src={icon} alt={name} className="systemIcon pointer-events-none"/> : name }
-                    </button>
+                    {icon ? <img src={icon} alt={name} className="systemIcon pointer-events-none"/> : name }
+            </button>
                 {isOpen && (
                     <div className="absolute top-full bg-white border-2 border-black hard-shadow z-50">
                     {items.map(renderItem)}

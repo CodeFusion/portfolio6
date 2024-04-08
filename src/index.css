@@ -37,3 +37,16 @@ img {
   image-rendering: -moz-crisp-edges;
   image-rendering: crisp-edges;
 }
+
+* {
+  image-rendering: pixelated;
+  image-rendering: -moz-crisp-edges;
+  image-rendering: crisp-edges;
+}
+
+
+.prose {
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'ChiKareGo2', sans-serif;
+  }
+}

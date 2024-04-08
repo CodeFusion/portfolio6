@@ -27,7 +27,7 @@
     z-index: 0;
 }
 
-.p7window:focus-within .titlebar-handle:after {
+.p7window.focused .titlebar-handle:after {
     top:6px;
     left: 4px;
     right: 4px;
@@ -49,7 +49,133 @@
     image-rendering: crisp-edges;
 }
 
-.p7window:focus-within .titlebar button {
+.p7window.focused .titlebar button.invisible {
+    visibility: hidden;
+    pointer-events: none;
+}
+
+.shade {
+    overflow: hidden;
+}
+
+.p7w-content {
+    position: absolute;
+    top: 36px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.p7w-content.unscrollable {
+    position: unset;
+}
+
+.vert-scroll {
+    position: absolute;
+    right: 0;
+    top: 36px;
+    bottom: 0;
+    width: 30px;
+    border-left: 2px solid black;
+    z-index: 2;
+}
+
+.vert-scroll .track {
+    position: absolute;
+    top: 28px;
+    bottom: 28px;
+    left: 0;
+    right: 0;
+    background-image: url('/icons/scrollbar-bg.png')
+}
+
+.horiz-scroll {
+    position: absolute;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    height: 30px;
+    border-top: 2px solid black;
+    z-index: 2;
+}
+
+.horiz-scroll .track {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 28px;
+    right: 28px;
+    background-image: url('/icons/scrollbar-bg.png')
+}
+
+.arrow {
+    position: absolute;
+    z-index: 1;
+    width: 28px;
+    height: 28px;
+    border-color: black;
+    border-style: solid;
+    background-position: center center;
+    cursor: default;
+    background-color: white;
+    image-rendering: pixelated;
+}
+
+.arrow-up {
+    top: 0;
+    right: 0;
+    border-bottom-width: 2px;
+    background-image: url('/icons/arrow-up.png');
+}
+
+.arrow-up:active {
+    background-image: url('/icons/arrow-up-active.png');
+}
+
+.arrow-down {
+    bottom: 30px;
+    right: 0;
+    border-top-width: 2px;
+    background-image: url('/icons/arrow-down.png');
+}
+
+.arrow-down:active {
+    background-image: url('/icons/arrow-down-active.png');
+}
+
+.arrow-left {
+    bottom: 0;
+    left: 0;
+    border-right-width: 2px;
+    background-image: url('/icons/arrow-left.png');
+}
+
+.arrow-left:active {
+    background-image: url('/icons/arrow-left-active.png');
+}
+
+.arrow-right {
+    bottom: 0;
+    right: 30px;
+    border-left-width: 2px;
+    background-image: url('/icons/arrow-right.png');
+}
+
+.arrow-right:active {
+    background-image: url('/icons/arrow-right-active.png');
+}
+
+.thumb {
+    width: 28px;
+    height: 28px;
+    border: 2px solid black;
+    background: white;
+    position: absolute;
+    top: 0;
+    left: 0
+}
+
+.p7window.focused .titlebar button {
     visibility: visible;
     background-repeat: no-repeat;
     background-size: contain;
@@ -57,7 +183,7 @@
     background-color: white;
 }
 
-.p7window:focus-within .titlebar button:active:hover {
+.p7window.focused .titlebar button:active:hover {
     background-image: url('/icons/titlebar-click.png');
 }
 
@@ -84,4 +210,51 @@
     overflow: hidden;
     margin: 0 12px;
     text-overflow: '';
+}
+
+.resize-button {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    height: 30px;
+    width: 30px;
+    border-color: black;
+    border-width: 2px 0 0 2px;
+    background-color: white;
+    background-image: url('/icons/resize.png');
+    image-rendering: pixelated;
+    z-index: 1000;
+}
+
+.resize-shell {
+    border-image: url('/icons/border.png') 2;
+    border-image-repeat: round;
+    border-width: 2px;
+    image-rendering: pixelated;
+    z-index: 50000;
+}
+
+.resize-shell .titlebar {
+    background: transparent;
+    height: 36px;
+    border-bottom-width: 2px;
+    border-image: url('/icons/border.png') 2;
+    border-image-repeat: round;
+    z-index: 50000;
+}
+
+.resize-shell .vert-scroll {
+    background: transparent;
+    border-left-width: 2px;
+    border-image: url('/icons/border.png') 2;
+    border-image-repeat: round;
+    z-index: 50000;
+}
+
+.resize-shell .horiz-scroll {
+    background: transparent;
+    border-top-width: 2px;
+    border-image: url('/icons/border.png') 2;
+    border-image-repeat: round;
+    z-index: 50000;
 }

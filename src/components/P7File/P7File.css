@@ -2,7 +2,16 @@
     min-width: 64px;
 }
 
-.p7file img {
-    height: 64px;
-    width: 64px;
+.p7file .fileicon {
+    max-height: 64px;
+    max-width: 64px;
+}
+
+.p7file.focused .fileicon {
+    filter: brightness(.5);
+}
+
+.p7file.focused .filename {
+    background-color: black;
+    color: white;
 }

@@ -1,0 +1,46 @@
+# Kyle Ramey
+### Senior Software Developer
+[hi@kyleramey.dev](mailto:hi@kyleramey.dev)
+
+[github.com/codefusion](https://github.com/codefusion)
+
+[linkedin.com/in/kyleramey](https://www.linkedin.com/in/kyleramey/)
+
+### EXPERIENCE
+
+#### Mindsea Development— Senior Software Developer
+**MARCH 2020 - PRESENT**
+* Developed Android, React Native, and React apps
+* Built backend services to support front-end apps
+* Architected infrastructure for several projects
+* Defined security processes to streamline workflow and meet certification requirements
+* Identified and resolved bugs and security issues in existing applications
+* Lead development teams creating Android and web apps
+* Used an Agile workflow adjusted to client needs
+Kotlin, Compose, Typescript, React, React Native, Expo, Angular, C#
+
+#### QHR Technologies — Intermediate Software Developer
+**JULY 2017 - FEBRUARY 2020**
+* Maintained a white-labeled Android application with mixed native and web content through a JS bridge
+* Refactored Android app to reduce bundle size by 40% and eliminate crashes
+* Built new features for virtual healthcare application in Spring Boot and Angular following Test Driven Development
+* Maintained and added features to legacy Ruby on Rails and AngularJS applications
+* Followed an Agile/SCRUM workflow
+Java, Typescript, Javascript, Angular, AngularJS, Ruby on Rails
+
+#### Site 20/20 — Embedded/Mobile Software Developer
+**JUNE 2016 - JANUARY 2017**
+* Built embedded Linux applications in C and C++ for various ARM architectures
+* Co-developed Android app for flagging system using Protobuf and real-time video
+* Collaboratively architected upgrade to flagging system to improve efficiency and reliability
+* Linux image customization and compilation
+
+Java, C, C++
+
+## EDUCATION
+**Bachelor of Computer Science**
+Dalhousie University, 2016
+
+## PROJECTS
+###### [Switch Transfer Tool](https://switchtransfertool.codefusion.ca)
+Android app to simplify media transfer by QR Code from Nintendo Switch

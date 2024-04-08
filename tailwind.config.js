@@ -5,8 +5,17 @@ export default {
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      listStyleType: {
+        none: 'none',
+        disc: 'disc',
+        decimal: 'decimal',
+        square: 'square',
+      }
+    },
   },
-  plugins: [],
+  plugins: [
+      require('@tailwindcss/typography'),
+  ],
 }
 

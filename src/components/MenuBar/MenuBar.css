@@ -1,3 +1,7 @@
+.MenuBar, .MenuBar .menu {
+    z-index: 9999999;
+}
+
 .blink {
     animation: blink 100ms linear 2;
 }

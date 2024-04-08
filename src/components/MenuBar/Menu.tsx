@@ -34,14 +34,14 @@ export const Menu = ({name, icon, items}: MenuProps) => {
 
     const renderItem = (item: MenuItemProps | "separator") => {
         if (item === "separator") {
-            return <div className="border-b-2 border-b-black border-dotted" />
+            return <div className="border-b-2 border-b-black border-dotted" key={Math.random()}/>
         } else {
-            return <MenuItem name={item.name} shortcut={item.shortcut} disabled={item.disabled} />
+            return <MenuItem name={item.name} shortcut={item.shortcut} disabled={item.disabled} key={item.name} onActivate={item.onActivate}/>
         }
     }
 
     return (
-        <div className="relative" onMouseDown={onMouseDown}>
+        <div className="relative menu" onMouseDown={onMouseDown}>
             <button
                 className="inline px-3 cursor-default whitespace-nowrap rounded-none h-full
                 focus:bg-black focus:text-white

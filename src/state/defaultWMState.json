@@ -1,28 +1,37 @@
 {
   "windows": [
-
     {
-      "id": "w-yuki",
-      "title": "Browser",
+      "id": "w-portfoliohd",
+      "title": "Portfolio HD",
+      "scrollable": true,
       "position": {
         "x": 10,
         "y": 10
       },
-      "appData": {
-        "app": "yuki",
-        "path": "https://archive.org"
-      }
-    },
-    {
-      "id": "w-portfoliohd",
-      "title": "Portfolio HD",
-      "position": {
-        "x": 10,
-        "y": 10
+      "size": {
+        "width": 400,
+        "height": 300
       },
       "appData": {
         "app": "phoenix",
         "path": "portfoliohd"
+      }
+    },
+    {
+      "id": "w-readme",
+      "title": "readme",
+      "scrollable": true,
+      "position": {
+          "x": 30,
+          "y": 30
+      },
+      "size": {
+        "width": 500,
+        "height": 700
+      },
+      "appData": {
+        "app": "text",
+        "path": "readme"
       }
     }
   ]

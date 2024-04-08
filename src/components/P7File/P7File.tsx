@@ -2,8 +2,7 @@ import './P7File.css';
 import {useDraggable} from "@dnd-kit/core";
 import {createPhoenixWindow} from "../../utils";
 import React, {useState} from "react";
-import {createYukiWindow} from "../../utils/windowUtils.ts";
-import {useWindowManager} from "../../state/windowManager.ts";
+import {createTextViewerWindow} from "../../utils/windowUtils.ts";
 import {useShallow} from "zustand/react/shallow";
 import {useFileSystem} from "../../state/fileSystem.ts";
 
@@ -18,17 +17,20 @@ export type P7FileProps = {
         x: number,
         y: number
     },
-    overlay?: boolean
+    overlay?: boolean,
 }
 
 export const P7File = ({id, name, type, path, icon, iconDrag, position, overlay}: P7FileProps) => {
     const {attributes, listeners, setNodeRef} = useDraggable({id})
-    const {topZIndex, incrementZIndex} = useFileSystem(
-      useShallow((state) => ({topZIndex: state.topZIndex, incrementZIndex: state.incrementZIndex}))
+    const {topZIndex, incrementZIndex, focus} = useFileSystem(
+      useShallow((state) => ({
+          incrementZIndex: state.incrementZIndex,
+          topZIndex: state.topZIndex,
+          focus: state.focus,
+          setFocus: state.setFocus
+      }))
     );
     const [zIndex, setZIndex] = useState(topZIndex);
-
-
 
     const handleDoubleClick = (e: React.MouseEvent) => {
         switch (type) {
@@ -36,7 +38,10 @@ export const P7File = ({id, name, type, path, icon, iconDrag, position, overlay}
                 createPhoenixWindow(name, path!)
                 break;
             case "link":
-                createYukiWindow(path!)
+                window.open(path!, '_blank')?.focus()
+                break;
+            case "text":
+                createTextViewerWindow(path!)
                 break;
             default:
                 e.preventDefault()
@@ -44,8 +49,14 @@ export const P7File = ({id, name, type, path, icon, iconDrag, position, overlay}
         }
     }
 
-    const style = overlay ? undefined : {
+    const style = (position.x >= 0) ?{
         left: `${position.x}px`,
+        right: 'unset',
+        top: `${position.y}px`,
+        zIndex: zIndex
+    } : {
+        left: 'unset',
+        right: `${Math.abs(position.x)}px`,
         top: `${position.y}px`,
         zIndex: zIndex
     }
@@ -58,23 +69,27 @@ export const P7File = ({id, name, type, path, icon, iconDrag, position, overlay}
     } : undefined
 
     const handleOnFocus = () => {
-        incrementZIndex()
-        setZIndex(topZIndex)
+        if (!overlay) {
+            incrementZIndex()
+            setZIndex(topZIndex)
+        }
     }
+
+    const focusedClass = focus.includes(id) ? 'focused' : '';
 
     return (
         <div ref={setNodeRef}
+             id={id}
              style={{...style}}
              {...listeners}
              {...attributes}
-             className="inline-flex flex-col items-center group absolute p7file"
+             className={"inline-flex flex-col items-center group absolute p7file " + focusedClass}
              tabIndex={0}
              onDoubleClick={handleDoubleClick}
              onFocus={handleOnFocus}
         >
-            <img src={overlay ? iconDrag ?? icon : icon} alt={name} className="w-full group-focus:brightness-50" />
-            <div className="px-1 bg-white leading-none text-lg text-nowrap
-                group-focus:bg-black group-focus:text-white" style={dragStyle}>{name}</div>
+            <img src={overlay ? iconDrag ?? icon : icon} alt={name} className="w-full fileicon group-focus:brightness-50" />
+            <div className="px-1 bg-white leading-none text-lg text-nowrap filename" style={dragStyle}>{name}</div>
         </div>
 )
 }

@@ -6,10 +6,11 @@
         "id": "f-readme",
         "type": "text",
         "name": "README",
+        "path": "readme",
         "icon": "/icons/file.png",
         "iconDrag": "/icons/file-drag.png",
         "position": {
-          "x": 10,
+          "x": -30,
           "y": 10
         }
       },
@@ -21,8 +22,8 @@
         "icon": "/icons/github.png",
         "iconDrag": "/icons/github-drag.png",
         "position": {
-          "x": 100,
-          "y": 10
+          "x": -34,
+          "y": 120
         }
       },
       {
@@ -33,8 +34,8 @@
         "icon": "/icons/drive.png",
         "iconDrag": "/icons/drive-drag.png",
         "position": {
-          "x": 190,
-          "y": 10
+          "x": -14,
+          "y": 210
         }
       }
     ]
@@ -43,9 +44,10 @@
     "name": "Portfolio HD",
     "files": [
       {
-        "id": "f-another",
+        "id": "f-resume",
         "type": "text",
-        "name": "Another File",
+        "name": "Resume",
+        "path": "resume",
         "icon": "/icons/file.png",
         "iconDrag": "/icons/file-drag.png",
         "position": {
@@ -54,24 +56,24 @@
         }
       },
       {
-        "id": "f-more",
+        "id": "f-linkedin",
         "type": "link",
-        "path": "https://github.com/CodeFusion",
-        "name": "Welcome",
-        "icon": "/icons/github.png",
-        "iconDrag": "/icons/github-drag.png",
+        "path": "https://linkedin.com/in/kyleramey",
+        "name": "LinkedIn",
+        "icon": "/icons/linkedin.png",
+        "iconDrag": "/icons/linkedin-drag.png",
         "position": {
           "x": 120,
           "y": 10
         }
       },
       {
-        "id": "f-phd2",
-        "type": "folder",
-        "name": "Spare HD",
-        "path": "portfoliohd",
-        "icon": "/icons/drive.png",
-        "iconDrag": "/icons/drive-drag.png",
+        "id": "f-stt",
+        "type": "link",
+        "name": "STT Site",
+        "path": "https://switchtransfertool.codefusion.ca",
+        "icon": "/icons/stt.png",
+        "iconDrag": "/icons/stt-drag.png",
         "position": {
           "x": 210,
           "y": 10

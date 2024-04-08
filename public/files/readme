@@ -1,0 +1,18 @@
+# Portfolio Software 7
+
+## Welcome
+This portfolio was made to emulate the feeling of a 90s Macintosh, somewhere between System 6 and System 7.
+
+## Why System 7?
+The design language and monochrome interface is uniquely retro and felt like a fun challenge to recreate. Plus, despite being more of a Linux and Windows user, I have fond memories of using iMacs and an old Macintosh Classic in elementary school.
+
+## Features
+- File explorer and desktop with draggable and highlightable icons
+- Window manager with movable, resizable, and collapsable windows (double-click the titlebar)
+- Markdown file viewer
+- About page
+
+## Notes
+This is not meant to be a perfect recreation of System 7, so some designs and functionalities may differ.
+
+Mobile support is limited - additional viewports will be added in the future.

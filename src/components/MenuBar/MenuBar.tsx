@@ -1,16 +1,20 @@
 import {Menu} from "./Menu.tsx";
 import {MenuItemProps} from "./MenuItem.tsx";
+import './MenuBar.css';
+import {createAboutWindow} from "../../utils/windowUtils.ts";
 
 export const MenuBar = () => {
 
     const systemMenuItems: (MenuItemProps | "separator")[] = [
-        {name: "About This Portfolio", disabled: false},
+        {name: "About This Portfolio", disabled: false, onActivate: () => {
+            createAboutWindow()
+        }},
         "separator",
-        {name: "Control Panels", disabled: false},
+        {name: "Control Panels", disabled: true},
     ];
 
     const fileMenuItems: MenuItemProps[] = [
-        {name: "Open", disabled: false, shortcut: "O"},
+        {name: "Open", disabled: true, shortcut: "O"},
         {name: "Print", disabled: true},
         {name: "Close", disabled: true, shortcut: "W"}
     ];
@@ -33,12 +37,12 @@ export const MenuBar = () => {
     ];
 
     const specialMenuItems: MenuItemProps[] = [
-        {name: "Restart", disabled: false},
-        {name: "Shut Down", disabled: false}
+        {name: "Restart", disabled: false, onActivate: () => {window.location.reload()}},
+        {name: "Shut Down", disabled: false, onActivate: () => {window.history.back()}},
     ];
 
     return (
-        <div className="MenuBar flex w-full border-b-2 border-black px-3 bg-white rounded-t-xl z-50">
+        <div className="MenuBar flex w-full border-b-2 border-black px-3 bg-white rounded-t-xl">
             <Menu name="System" icon="/Pixseal-simple.png" items={systemMenuItems} />
             <Menu name="File" items={fileMenuItems} />
             <Menu name="Edit" items={editMenuItems} />

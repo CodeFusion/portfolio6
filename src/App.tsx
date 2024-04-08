@@ -5,7 +5,7 @@ import {ImagePreload} from "./components/ImagePreload/ImagePreload.tsx";
 function App() {
 
   return (
-    <div className="bg-black p-2 flex flex-col h-full z-auto" onContextMenu={(e) => {e.preventDefault(); return false}}>
+    <div className="bg-black p-2 flex flex-col h-full z-auto overflow-hidden" onContextMenu={(e) => {e.preventDefault(); return false}}>
       <div className="screen flex flex-col h-full ">
         <MenuBar />
         <Desktop />

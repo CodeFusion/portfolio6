@@ -50,3 +50,7 @@ img {
     font-family: 'ChiKareGo2', sans-serif;
   }
 }
+
+html {
+  overscroll-behavior: none;
+}
